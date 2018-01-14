@@ -3,7 +3,6 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:background="@android:color/holo_green_dark"
-
               android:orientation="vertical">
 
     <TextView
@@ -15,5 +14,5 @@
         android:textColor="@android:color/white"
         android:textSize="20sp"
         android:layout_marginBottom="10dp"
-        android:text="数据"/>
+        android:text="不知道"/>
 </LinearLayout>
