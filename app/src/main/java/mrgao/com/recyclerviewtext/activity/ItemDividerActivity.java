@@ -3,8 +3,8 @@ package mrgao.com.recyclerviewtext.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.widget.Button;
 
@@ -13,7 +13,7 @@ import java.util.List;
 
 import mrgao.com.recyclerviewtext.R;
 import mrgao.com.recyclerviewtext.adapter.RecyclerAdapter;
-import mrgao.com.recyclerviewtext.divider.MyGridDividerItem;
+import mrgao.com.recyclerviewtext.divider.GridStaggerDivider;
 
 
 public class ItemDividerActivity extends AppCompatActivity {
@@ -31,13 +31,22 @@ public class ItemDividerActivity extends AppCompatActivity {
         deleteBtn = $(R.id.deleteBtn);
         onClick();
         /*LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
+        //使用垂直布局
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);*/
-        GridLayoutManager layoutManager=new GridLayoutManager(this,4);
-        mRecyclerView.setLayoutManager(layoutManager);
+
+
+        /*GridLayoutManager layoutManager=new GridLayoutManager(this,4);
+        //使用网格式布局
+        mRecyclerView.setLayoutManager(layoutManager);*/
+
+        /* 这里需要注意的是StaggeredGridLayoutManager构造的第二个参数传一个orientation，
+        * 如果传入的是StaggeredGridLayoutManager.VERTICAL那么前面那个参数就代表有多少列；
+        * 如果传是StaggeredGridLayoutManager.HORIZONTAL那么前面那个参数就代表有多少行*/
+        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(4,StaggeredGridLayoutManager.VERTICAL));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         //mRecyclerView.addItemDecoration(new LinnerItemDivider(LinnerItemDivider.VERTICAL_LIST, Color.RED,1));
-        mRecyclerView.addItemDecoration(new MyGridDividerItem(this));
+        mRecyclerView.addItemDecoration(new GridStaggerDivider(this));
         mAdapter = new RecyclerAdapter(this);
         mRecyclerView.setAdapter(mAdapter);
         initData();
