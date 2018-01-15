@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="mrgao.com.recyclerviewtext.loadMore.activity.LoadingActivity">
 
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/showError"
+            android:layout_width="wrap_content"
+            android:text="显示错误视图"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/showEmpty"
+            android:layout_width="wrap_content"
+            android:text="显示空视图"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="恢复数据"
+            android:id="@+id/restore"/>
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <mrgao.com.recyclerviewtext.loadMore.recyclerview.YRecyclerView
@@ -26,4 +49,4 @@
 
      </android.support.v7.widget.RecyclerView>-->
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
