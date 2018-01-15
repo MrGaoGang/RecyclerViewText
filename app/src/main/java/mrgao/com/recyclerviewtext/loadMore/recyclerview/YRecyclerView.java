@@ -52,6 +52,8 @@ public class YRecyclerView extends RecyclerView {
 
     private View mEmptyView;
 
+    private View mErrorView;
+
     public YRecyclerView(Context context) {
         super(context);
 
@@ -224,11 +226,49 @@ public class YRecyclerView extends RecyclerView {
      * @param view
      */
     public void setEmptyView(View view) {
-        if (mWrapAdapter != null) {
-            mWrapAdapter.setEmptyView(view);
-            mDataObserver.onChanged();
-            checkIfEmpty();
+        if (view != null) {
+            mEmptyView = view;
+            ViewGroup rootView = (ViewGroup) this.getRootView();
+            int childCount = rootView.getChildCount();
+            if (mEmptyView.getTag() == null) {//避免重复添加EmptyView
+                mEmptyView.setTag(childCount + 1);
+                //一定要记得加这句话，这样才会在RecyclerView中添加此布局，不然是显示不出来空视图的
+                ((ViewGroup) this.getRootView()).addView(mEmptyView);
+                mDataObserver.onChanged();
+
+            }
+
+
         }
+
+    }
+
+    /**
+     * 添加错误的时候视图
+     * @param view
+     */
+
+    public void setErrorView(View view){
+        if (view != null) {
+            mErrorView=view;
+            //一定要记得加这句话，这样才会在RecyclerView中添加此布局
+            ViewGroup rootView = (ViewGroup) this.getRootView();
+            int childCount = rootView.getChildCount();
+            if (mErrorView.getTag() == null) {//避免重复添加EmptyView
+                mErrorView.setTag(childCount + 1);
+                ((ViewGroup) this.getRootView()).addView(mErrorView);
+                mDataObserver.onChanged();
+
+            }
+        }
+    }
+    /**
+     * 返回空视图
+     *
+     * @return
+     */
+    public View getEmptyView() {
+        return mEmptyView;
     }
 
     /**
@@ -277,13 +317,8 @@ public class YRecyclerView extends RecyclerView {
 
 
     /**
-     * Created by mr.gao on 2018/1/14.
-     * Package:    mrgao.com.recyclerviewtext.loadMore.adapter
-     * Create Date:2018/1/14
-     * Project Name:RecyclerViewText
-     * Description:
+     * 监听适配器的数据变化的
      */
-
     private class DataObserver extends RecyclerView.AdapterDataObserver {
         @Override
         public void onChanged() {
@@ -293,6 +328,15 @@ public class YRecyclerView extends RecyclerView {
             checkIfEmpty();
         }
     }
+
+
+    /**
+     * Created by mr.gao on 2018/1/14.
+     * Package:    mrgao.com.recyclerviewtext.loadMore.adapter
+     * Create Date:2018/1/14
+     * Project Name:RecyclerViewText
+     * Description:
+     */
 
     private class LoadMoreWrapAdapter extends Adapter<ViewHolder> {
 
@@ -450,17 +494,6 @@ public class YRecyclerView extends RecyclerView {
                 mHeaderTypes.add(mHeaderViews.size());
                 mHeaderViews.add(view);
                 notifyDataSetChanged();
-            }
-        }
-
-        /**
-         * 设置空布局
-         *
-         * @param view
-         */
-        public void setEmptyView(View view) {
-            if (view != null) {
-                mEmptyView = view;
             }
         }
 

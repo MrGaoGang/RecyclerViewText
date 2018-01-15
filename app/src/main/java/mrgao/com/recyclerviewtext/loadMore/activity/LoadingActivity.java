@@ -49,7 +49,8 @@ public class LoadingActivity extends AppCompatActivity implements YRecyclerView.
         dataAdapter.addAll(strings);
 
         mYRecyclerView.setAdapter(dataAdapter);
-        View empty = LayoutInflater.from(this).inflate(R.layout.item_layout,null,false);
+        View empty = LayoutInflater.from(this).inflate(R.layout.view_empty,null,false);
+        mYRecyclerView.setEmptyView(empty);
         mYRecyclerView.setEmptyView(empty);
     }
 
