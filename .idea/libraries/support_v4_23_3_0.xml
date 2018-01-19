@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="support-v4-23.3.0">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-v4-23.3.0.aar/e30368b9212655674045ed74ff309e6d/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-v4-23.3.0.aar/e30368b9212655674045ed74ff309e6d/jars/classes.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-v4-23.3.0.aar/e30368b9212655674045ed74ff309e6d/jars/libs/internal_impl-23.3.0.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-v4-23.3.0.aar/d52d68cb567657cb50dd6b69bfd57296/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-v4-23.3.0.aar/d52d68cb567657cb50dd6b69bfd57296/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-v4-23.3.0.aar/d52d68cb567657cb50dd6b69bfd57296/jars/libs/internal_impl-23.3.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

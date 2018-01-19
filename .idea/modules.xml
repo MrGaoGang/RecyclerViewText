@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/RecyclerViewText.iml" filepath="$PROJECT_DIR$/.idea/RecyclerViewText.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/textlab/textlab.iml" filepath="$PROJECT_DIR$/textlab/textlab.iml" />
     </modules>
   </component>
 </project>
